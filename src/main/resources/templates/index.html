@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Minha Agenda</title>
+		<script type="text/javascript">
+			function carregarDados(){
+				var xhttp = new XMLHttpRequest();
+				
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("lista").innerHTML = xhttp.responseText;
+					}
+				};
+				
+				xhttp.open("GET", "http://localhost:8080/", true);
+				xhttp.send();
+			}
+			
+			carregarDados();
+		</script>
+	</head>
+	<body>
+		<div id="lista">
+		</div>
+	</body>
+</html>
